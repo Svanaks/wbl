@@ -1,10 +1,11 @@
 import express from "express";
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from 'path';
+import keys from '../../config/keys';
 
 // const usersRoute = require("./routes/users");
-import projectsRoute from "./server/routes/projects";
+import routes from "./routes";
 
 const app = express();
 
@@ -15,7 +16,16 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/projects", projectsRoute);
+// DB Config
+const db = keys.mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
+
+app.use("/", routes);
 
 const port = process.env.PORT || 5000;
 
