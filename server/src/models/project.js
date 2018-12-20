@@ -26,16 +26,8 @@ const Project = new mongoose.Schema({
     required: false
   },
   technology: {
-    type: String,
+    type: [String],
     required: true
-  },
-  technology2: {
-    type: String,
-    required: false
-  },
-  technology3: {
-    type: String,
-    required: false
   }
 });
 
