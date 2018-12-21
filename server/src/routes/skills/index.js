@@ -11,9 +11,4 @@ router.get(
   getSkills
 );
 
-router.post(
-  "/",
-  addSkill
-);
-
 export default router;

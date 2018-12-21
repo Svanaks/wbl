@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from 'path';
 import keys from '../../config/keys';
+import cors from 'cors';
 
 // const usersRoute = require("./routes/users");
 import routes from "./routes";
@@ -11,6 +12,12 @@ const app = express();
 
 // Build path
 app.use(express.static(path.join(__dirname, "client/build")));
+
+// Cors
+app.use(cors());
+
+// Proxy config
+app.enable("trust proxy");
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));

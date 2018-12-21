@@ -7,7 +7,11 @@ const Skill = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: false
+    required: true
+  },
+  type: {
+    type: [String],
+    required: true
   },
   versions: {
     type: [String],
@@ -20,12 +24,17 @@ const Skill = new mongoose.Schema({
   projects: [{
     tag: {
       type: String,
-      required: false
+      required: true
     },
     project: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Project',
-      required: false
+      url: {
+        type: String,
+        required: false
+      },
+      technology: {
+        type: [String],
+        required: true
+      }
     }
   }]
 });
