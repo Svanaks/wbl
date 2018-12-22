@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ky from 'ky';
+import ky from "ky";
 
 class Projects extends Component {
   constructor() {

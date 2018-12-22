@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-import ky from 'ky';
+import { SkillCategory } from "../SkillCategory";
+import ky from "ky";
 
 class Skills extends Component {
   constructor() {
     super();
     this.state = {
-      skills: [],
       languages: [],
-      frameworks: []
+      frameworks: [],
+      databases: [],
+      environments: [],
+      templatings: [],
+      devops: [],
+      others: []
     };
   }
 
@@ -23,58 +28,67 @@ class Skills extends Component {
     (async () => {
       const response = await ky.get('/skills').json();
     
-      // console.log(response);
-      this.setState({skills: response});
-
-      let categorizedArray = this.groupBy(this.state.skills, 'category');
+      let categorizedArray = this.groupBy(response, 'category');
       let languages = categorizedArray.Language;
       let frameworks = categorizedArray.Frameworks;
+      let databases = categorizedArray.Database;
+      let environments = categorizedArray.Environments;
+      let templatings = categorizedArray.Templating;
+      let devops = categorizedArray.Devops;
+      let others = categorizedArray.Other;
       this.setState({
-        languages: languages,
-        frameworks: frameworks
+        languages,
+        frameworks,
+        databases,
+        environments,
+        templatings,
+        devops,
+        others
       });
-      console.log(categorizedArray.Language);
-      // console.log(this.state);      
-      // // console.log(this.state.skills);
-      // console.log(categorizedArray);
-      //=> `{data: '🦄'}`
+
+      console.log(categorizedArray);
     })();
   }
 
   render() {
+    const {
+      languages,
+      frameworks,
+      databases,
+      environments,
+      templatings,
+      devops,
+      others
+    } = this.state;
     return (
       <div>
-        {/* {this.state.skills.map((skill, i) => {
-            return( 
-            <div key={skill._id}>
-              <div>
-                {skill.title}
-              </div>
-            </div>
-            )
-          }
-        )} */}
-        {this.state.languages.map((lang, i) => {
-            return( 
-            <div key={lang._id}>
-              <div>
-                {lang.title}
-              </div>
-            </div>
-            )
-          }
-        )}
+        {languages.length ?
+          <SkillCategory title="Languages" category={languages}/> : ''
+        }
         <hr/>
-        {this.state.frameworks.map((framework, i) => {
-            return( 
-            <div key={framework._id}>
-              <div>
-                {framework.title}
-              </div>
-            </div>
-            )
-          }
-        )}
+        {frameworks.length ?
+          <SkillCategory title="Frameworks" category={frameworks}/> : ''
+        }
+        <hr/>
+        {databases.length ?
+          <SkillCategory title="Database" category={databases}/> : ''
+        }
+        <hr/>
+        {environments.length ?
+          <SkillCategory title="Environments" category={environments}/> : ''
+        }
+        <hr/>
+        {templatings.length ?
+          <SkillCategory title="Templating" category={templatings}/> : ''
+        }
+        <hr/>
+        {devops.length ?
+          <SkillCategory title="Devops" category={devops}/> : ''
+        }
+        <hr/>
+        {others.length ?
+          <SkillCategory title="Other" category={others}/> : ''
+        }
       </div>
     );
   }
