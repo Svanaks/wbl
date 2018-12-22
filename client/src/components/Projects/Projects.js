@@ -13,9 +13,9 @@ class Projects extends Component {
     (async () => {
       const response = await ky.get('/projects').json();
     
-      console.log(response);
+      // console.log(response);
       this.setState({projects: response});
-      console.log(this.state)
+      // console.log(this.state)
       //=> `{data: '🦄'}`
     })();
   }
