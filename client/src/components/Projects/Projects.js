@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ky from "ky";
+import { Project } from "../Project";
 
 class Projects extends Component {
   constructor() {
@@ -22,14 +23,12 @@ class Projects extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ui left doubling cards container">
+        <h1>Projects</h1>
+        <p>In this section I'll present to you some of my projects. If you wish to get more information on these projects you can either check the website and/or the github repository if they are available</p>
         {this.state.projects.map((project, i) => {
             return( 
-            <div key={project._id}>
-              <div>
-                {project.title}
-              </div>
-            </div>
+              <Project project={project} />
             )
           }
         )}

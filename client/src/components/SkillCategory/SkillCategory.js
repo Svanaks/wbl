@@ -4,8 +4,8 @@ import { Skill } from "../Skill";
 function SkillCategory(props) {
   // console.log(props);
   return (
-    <div className="Comment">
-    <h1>{props.title}</h1>
+    <div>
+    <h3>{props.title}</h3>
       {props.category.map((skill, i) => {
             return( 
             <div key={skill._id}>

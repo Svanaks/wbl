@@ -61,7 +61,9 @@ class Skills extends Component {
       others
     } = this.state;
     return (
-      <div>
+      <div className="ui container">
+        <h1>Skills</h1>
+        <p>In this section, I'll present to you my skillset. Most of the items described here will have related projects that can be found on the bottom of the card. You can hover over the different projects to see the stack used for each one.</p>
         {languages.length ?
           <SkillCategory title="Languages" category={languages}/> : ''
         }

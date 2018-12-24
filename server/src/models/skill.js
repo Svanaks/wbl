@@ -21,6 +21,10 @@ const Skill = new mongoose.Schema({
     type: String,
     required: false
   },
+  order: {
+    type: Number,
+    required: true
+  },
   projects: [{
     tag: {
       type: String,

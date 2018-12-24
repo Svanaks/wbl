@@ -1,28 +1,20 @@
 import mongoose from 'mongoose';
 
-const Project = new mongoose.Schema({
+const Experience = new mongoose.Schema({
   title: {
     type: String,
     required: true
   },
-  url: {
+  logoPath: {
     type: String,
-    required: false
+    required: true
   },
-  slug: {
-    type: String,
-    required: false
-  },
-  repositoryLink: {
-    type: String,
-    required: false
-  },
-  iconName: {
+  position: {
     type: String,
     required: true
   },
   description: {
-    type: String,
+    type: [String],
     required: true
   },
   technology: {
@@ -35,4 +27,4 @@ const Project = new mongoose.Schema({
   }
 });
 
-export default mongoose.model("project", Project);
+export default mongoose.model("experience", Experience);

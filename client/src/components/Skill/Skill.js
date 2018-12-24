@@ -3,8 +3,8 @@ import React from "react";
 function Skill(props) {
   console.log(props)
   return (
-    <div className="Comment">
-    <h1>{props.skill.title}</h1>
+    <div>
+    <h2>{props.skill.title}</h2>
     <ul>
       {props.skill.version ? <li>{props.skill.version}</li> : ''}
       {props.skill.description ? <li>{props.skill.description}</li> : ''}
