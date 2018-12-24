@@ -4,7 +4,15 @@
   margin-right: 30px;
 }
 
-.ui.card, .ui.cards>.card {
+.centered {
+  text-align: center;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.ui.cards>.card-min-width {
   min-width: 345px!important;
 }
 
@@ -38,6 +46,10 @@
 
 .ui.menu .item:last-of-type:before {
   display: none;
+}
+
+.ui.black.ribbon.label {
+  border-color: #616161!important;
 }
 
 @media only screen and (max-width: 700px) {

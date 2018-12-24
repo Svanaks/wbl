@@ -64,33 +64,33 @@ class Skills extends Component {
       <div className="ui container">
         <h1>Skills</h1>
         <p>In this section, I'll present to you my skillset. Most of the items described here will have related projects that can be found on the bottom of the card. You can hover over the different projects to see the stack used for each one.</p>
-        {languages.length ?
-          <SkillCategory title="Languages" category={languages}/> : ''
-        }
-        <hr/>
-        {frameworks.length ?
-          <SkillCategory title="Frameworks" category={frameworks}/> : ''
-        }
-        <hr/>
-        {databases.length ?
-          <SkillCategory title="Database" category={databases}/> : ''
-        }
-        <hr/>
-        {environments.length ?
-          <SkillCategory title="Environments" category={environments}/> : ''
-        }
-        <hr/>
-        {templatings.length ?
-          <SkillCategory title="Templating" category={templatings}/> : ''
-        }
-        <hr/>
-        {devops.length ?
-          <SkillCategory title="Devops" category={devops}/> : ''
-        }
-        <hr/>
-        {others.length ?
-          <SkillCategory title="Other" category={others}/> : ''
-        }
+        <div className="ui two column stackable grid">
+          <div className="column">
+            {languages.length ?
+              <SkillCategory title="Languages" category={languages}/> : ''
+            }
+            {databases.length ?
+              <SkillCategory title="Database" category={databases}/> : ''
+            }
+            {templatings.length ?
+              <SkillCategory title="Templating" category={templatings}/> : ''
+            }
+          </div>
+          <div className="column">
+            {frameworks.length ?
+              <SkillCategory title="Frameworks" category={frameworks}/> : ''
+            }
+            {devops.length ?
+              <SkillCategory title="Devops" category={devops}/> : ''
+            }
+            {environments.length ?
+              <SkillCategory title="Environments" category={environments}/> : ''
+            }
+            {others.length ?
+              <SkillCategory title="Other" category={others}/> : ''
+            }
+          </div>
+        </div>
       </div>
     );
   }

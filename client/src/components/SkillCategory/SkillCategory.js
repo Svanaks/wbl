@@ -4,13 +4,11 @@ import { Skill } from "../Skill";
 function SkillCategory(props) {
   // console.log(props);
   return (
-    <div>
-    <h3>{props.title}</h3>
+    <div className="ui raised segment">
+    <span class="ui black ribbon label">{props.title}</span>
       {props.category.map((skill, i) => {
             return( 
-            <div key={skill._id}>
               <Skill skill={skill} />
-            </div>
             )
           }
         )}

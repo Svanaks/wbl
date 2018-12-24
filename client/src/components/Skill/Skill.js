@@ -3,15 +3,48 @@ import React from "react";
 function Skill(props) {
   console.log(props)
   return (
-    <div>
-    <h2>{props.skill.title}</h2>
-    <ul>
-      {props.skill.version ? <li>{props.skill.version}</li> : ''}
-      {props.skill.description ? <li>{props.skill.description}</li> : ''}
-      {props.skill.type ? <li>{props.skill.type}</li> : ''}
-      <li></li>
-      <li></li>
-    </ul>
+    <div key={props.skill._id} className="ui fluid card">
+      <div className="content">
+        <div className="header">
+          {props.skill.title}
+          <div className="ui right floated">
+            {props.skill.type.map(techType => {
+              return(
+                <span className={`ui basic ${techType.color} circular label`}>{techType.label}</span>
+              )
+            })}
+          </div>
+        </div>
+        <div className="meta">
+        {props.skill.versions ? <span>Versions: {props.skill.versions}</span> : ''}
+        </div>
+      </div>
+      <div className="extra content">
+          {props.skill.description}
+      </div>
+      {props.skill.projects.length ?
+        <div className="extra content">
+            <div className="ui labels">
+              {props.skill.projects.map(proj => {
+                return(
+                  <a class="ui label with-popup" href={proj.url}target="_blank" data-position="bottom center" data-tooltip={proj.project.technology}>{proj.tag}</a>
+                )
+              })}
+            </div>
+        </div>
+      : ''}
+
+
+
+
+      {/* <h2>{props.skill.title}</h2>
+      <ul>
+        {props.skill.version ? <li>{props.skill.version}</li> : ''}
+        {props.skill.description ? <li>{props.skill.description}</li> : ''}
+        {props.skill.type ? <li>{props.skill.type}</li> : ''}
+        <li></li>
+        <li></li>
+      </ul> */}
     </div>
   );
 }

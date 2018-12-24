@@ -9,12 +9,20 @@ const Skill = new mongoose.Schema({
     type: String,
     required: true
   },
-  type: {
-    type: [String],
-    required: true
-  },
+  type: [{
+    label: {
+      type: String,
+      required: true
+    },
+    color: {
+      url: {
+        type: String,
+        required: true
+      }
+    }
+  }],
   versions: {
-    type: [String],
+    type: String,
     required: false
   },
   description: {
