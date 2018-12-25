@@ -2,17 +2,35 @@ import React from "react";
 
 function Experience(props) {
   return (
-    <div>
-      <h3>{props.experience.title}</h3>
-        {/* {props.project.url && props.project.slug ? <a href={props.project.url}>{props.project.slug}</a> : ''}
-        {props.project.repositoryLink ? <a href={props.project.repositoryLink}>Repository</a> : 'No Repository'}
-        <p>{props.project.iconName}</p>
-        <p>{props.project.description}</p>
-        {props.project.technology.map(tech => {
-          return(
-            <p>{tech}</p>
-          )
-        })} */}
+    <div key={props.experience._id} className="item">
+      <div className="image">
+        <img src={`../../../${props.experience.logoPath}`} />
+      </div>
+      <div className="middle aligned content">
+        <a className="header">{props.experience.title}</a>
+      
+        <div className="meta">
+          <span></span>
+        </div>
+        <div className="description">
+          <ul>
+            {props.experience.description.map(task => {
+              return(
+                <li>{task}</li>
+              )
+            })}
+          </ul>
+        </div>
+        <div className="extra">
+          <div className="ui labels">
+            {props.experience.technology.map(tech => {
+              return(
+                <span class="ui label">{tech}</span>
+              )
+            })}
+          </div>        
+        </div>
+      </div>
     </div>
   );
 }

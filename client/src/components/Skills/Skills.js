@@ -45,8 +45,6 @@ class Skills extends Component {
         devops,
         others
       });
-
-      console.log(categorizedArray);
     })();
   }
 

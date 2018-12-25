@@ -13,11 +13,7 @@ class Projects extends Component {
   componentDidMount() {
     (async () => {
       const response = await ky.get('/projects').json();
-    
-      // console.log(response);
       this.setState({projects: response});
-      // console.log(this.state)
-      //=> `{data: '🦄'}`
     })();
   }
 

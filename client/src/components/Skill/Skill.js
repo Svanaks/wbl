@@ -1,7 +1,6 @@
 import React from "react";
 
 function Skill(props) {
-  console.log(props)
   return (
     <div key={props.skill._id} className="ui fluid card">
       <div className="content">
@@ -24,27 +23,15 @@ function Skill(props) {
       </div>
       {props.skill.projects.length ?
         <div className="extra content">
-            <div className="ui labels">
-              {props.skill.projects.map(proj => {
-                return(
-                  <a class="ui label with-popup" href={proj.url}target="_blank" data-position="bottom center" data-tooltip={proj.project.technology}>{proj.tag}</a>
-                )
-              })}
-            </div>
+          <div className="ui labels">
+            {props.skill.projects.map(proj => {
+              return(
+                <a class="ui label with-popup" href={proj.url}target="_blank" data-position="bottom center" data-tooltip={proj.project.technology}>{proj.tag}</a>
+              )
+            })}
+          </div>
         </div>
       : ''}
-
-
-
-
-      {/* <h2>{props.skill.title}</h2>
-      <ul>
-        {props.skill.version ? <li>{props.skill.version}</li> : ''}
-        {props.skill.description ? <li>{props.skill.description}</li> : ''}
-        {props.skill.type ? <li>{props.skill.type}</li> : ''}
-        <li></li>
-        <li></li>
-      </ul> */}
     </div>
   );
 }

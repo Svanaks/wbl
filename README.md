@@ -21,10 +21,11 @@
 
 - [x] Backend for experiences
 - [x] Get experiences frontend (ky)
-- [ ] Finish first draft of ui for frontend according to mockup
-- [ ] Sort projects and skills by priority
+- [x] Finish first draft of ui for frontend according to mockup
+- [x] Sort projects and skills by priority
 - [ ] Add react-navhashlink in order to have anchors
 - [ ] Add responsive menu (burger)
+- [ ] Finish landing section (photo and side section)
 - [ ] Add tests
 - [ ] Refactor some components (http requests in their own file, remove dead code, improve code quality)
 - [ ] SVG for homepage instead of photo/drawing ?

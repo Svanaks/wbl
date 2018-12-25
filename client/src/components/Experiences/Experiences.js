@@ -13,11 +13,7 @@ class Experiences extends Component {
   componentDidMount() {
     (async () => {
       const response = await ky.get('/experiences').json();
-    
-      // console.log(response);
       this.setState({experiences: response});
-      // console.log(this.state)
-      //=> `{data: '🦄'}`
     })();
   }
 
@@ -25,14 +21,20 @@ class Experiences extends Component {
     return (
       <div className="ui container">
         <h1>Experiences</h1>
-        {this.state.experiences.map((experience, i) => {
-            return( 
-            <div key={experience._id}>
-              <Experience experience={experience} />
+        <p>In this section I'll present to you my last experiences. If you wish to get more information on my experiences or formation, you can check my <a href="https://www.linkedin.com/in/william-bloch-b175b147/">linkedIn</a>.</p>
+        <div className="ui grid">
+          <div className="two wide column"></div>
+          <div className="twelve wide column">
+            <div className="ui items">
+              {this.state.experiences.map((experience, i) => {
+                  return( 
+                    <Experience experience={experience} />
+                  )
+                }
+              )}
             </div>
-            )
-          }
-        )}
+          </div>
+        </div>
       </div>
     );
   }
